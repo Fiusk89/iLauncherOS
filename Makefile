@@ -19,7 +19,7 @@ ROOTFS = $(subst $(TEXTTORM),, $(TMPVAR))
 default: emu
 
 build:
-	@ls iLauncherKernel || cp -rf ../iLauncherKernel iLauncherKernel
+	@ls iLauncherKernel || cp -rf ../iLauncherKernel iLauncherKernel || echo
 	@ls iLauncherKernel || git clone https://github.com/iLauncherDev/iLauncherKernel
 	@make -C iLauncherKernel
 	@cp iLauncherKernel/kernel-i386.bin OS_Files/boot/i386/ilauncher-kernel.bin
@@ -30,7 +30,7 @@ build:
 	@md5sum iLauncherOS.iso >> iLauncherOS.iso.md5
 
 emu:
-	@md5sum -c iLauncherOS.iso.md5 && qemu-system-x86_64 $(QEMU_FLAGS) || echo 404
+	@md5sum -c iLauncherOS.iso.md5 && qemu-system-x86_64 $(QEMU_FLAGS)
 
 emu-uefi:
 	@md5sum -c iLauncherOS.iso.md5 && qemu-system-x86_64 -bios /usr/share/ovmf/OVMF.fd $(QEMU_FLAGS) || echo 404
