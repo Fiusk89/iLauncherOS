@@ -1,0 +1,12 @@
+<html>
+<script>
+const KERNEL_BASE_ADDRESS = 0xC0000000;
+const KERNEL_PAGE_INDEX = KERNEL_BASE_ADDRESS >>> 22;
+var string = "";
+string += "\tdd ((0 << 22) & 0xFFC00000) | 0x83\n";
+string += "\ttimes (" + KERNEL_PAGE_INDEX + " - 1) dd 0x00\n";
+for (var i = 0; i < KERNEL_PAGE_INDEX; i++)
+string += "\tdd ((" + i + " << 22) & 0xFFC00000) | 0x83\n";
+console.log(string);
+</script>
+</html>
