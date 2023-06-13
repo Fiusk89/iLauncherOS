@@ -18,6 +18,9 @@ ROOTFS = $(subst $(TEXTTORM),, $(TMPVAR))
 
 default: emu
 
+install-requirements:
+	@sudo apt install $(cat requirements.txt)
+
 build:
 	@ls iLauncherKernel || cp -rf ../iLauncherKernel iLauncherKernel || echo
 	@ls iLauncherKernel || git clone https://github.com/iLauncherDev/iLauncherKernel
