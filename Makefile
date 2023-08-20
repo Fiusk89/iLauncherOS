@@ -36,4 +36,4 @@ run:
 	@md5sum -c iLauncherOS.iso.md5 && qemu-system-x86_64 $(QEMU_FLAGS)
 
 run-uefi:
-	@md5sum -c iLauncherOS.iso.md5 && qemu-system-x86_64 -bios /usr/share/ovmf/OVMF.fd $(QEMU_FLAGS) || echo 404
+	@md5sum -c iLauncherOS.iso.md5 && qemu-system-x86_64 -bios /usr/share/ovmf/OVMF.fd $(QEMU_FLAGS)
