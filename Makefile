@@ -32,8 +32,8 @@ build:
 	@rm -rf *.o *.asm_o *.bin *.md5 || echo
 	@md5sum iLauncherOS.iso >> iLauncherOS.iso.md5
 
-emu:
+run:
 	@md5sum -c iLauncherOS.iso.md5 && qemu-system-x86_64 $(QEMU_FLAGS)
 
-emu-uefi:
+run-uefi:
 	@md5sum -c iLauncherOS.iso.md5 && qemu-system-x86_64 -bios /usr/share/ovmf/OVMF.fd $(QEMU_FLAGS) || echo 404
