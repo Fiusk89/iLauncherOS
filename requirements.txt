@@ -1,1 +1,1 @@
-build-essential nasm qemu-kvm
+build-essential clang xorriso nasm qemu-kvm
