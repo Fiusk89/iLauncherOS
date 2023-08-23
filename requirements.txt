@@ -1,1 +1,1 @@
-build-essential clang xorriso nasm qemu-kvm
+build-essential clang mtools gcc-multilib xorriso nasm qemu-kvm
